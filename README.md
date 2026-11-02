@@ -1,5 +1,9 @@
 # Cryptowatch Python SDK
 
+> **Fork context:** This is `marketsbymark/cw-sdk-python`, forked from [pdx-trader/cw-sdk-python](https://github.com/pdx-trader/cw-sdk-python). The checked-in package identifies itself as version `0.0.14` in [setup.py](setup.py). The upstream usage documentation below is retained for this source snapshot; external API, account, pricing, and package links are not a guarantee of current service availability or compatibility.
+
+To install this checkout rather than a package release, use a Python virtual environment, then run `python -m pip install -e .` from the repository root. Development and test commands are documented below.
+
 The Cryptowatch Python library provides a convenient access to the [Cryptowatch API](https://docs.cryptowat.ch/home/) from applications written in the Python language.
 
 It includes the following features:
@@ -50,7 +54,7 @@ for market in kraken.markets:
     # Compute market performance, skip if open was 0
     if wkly_open == 0:
         continue
-    perf = (wkly_open - wkly_close) * 100 / wkly_open
+    perf = (wkly_close - wkly_open) * 100 / wkly_open
 
     # If the market performance was 5% or more, print it
     if perf >= 5:
@@ -62,13 +66,14 @@ for market in kraken.markets:
 ### Requirements
 
 * python v3.7+
-* requests v0.8.8+
+* requests v2.22.0+
 * marshmallow v3.2.2+
 * pyyaml v5.1.2+
+* urllib3 v1.25.7+
 * websocket-client v0.56+
 * protobuf v3.11.3+
 
-## API Crendential
+## API Credentials
 
 Using a credential file will allow you to authenticate your requests and grant you the API access of your Cryptowatch account.
 
